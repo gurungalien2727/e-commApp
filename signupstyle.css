@@ -1,0 +1,16 @@
+.form {
+  height: 600px;
+  width: 400px;
+  margin: 160px auto;
+  border-radius: 8%;
+  position: relative;
+  border: 1.5px solid black;
+}
+
+.formdiv {
+  height: 550px;
+  width: 300px;
+  position: absolute;
+  margin-top: 60px;
+  margin-left: 120px;
+}
