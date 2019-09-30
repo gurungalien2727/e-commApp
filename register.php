@@ -10,15 +10,14 @@ $email=$_POST['email'];
 $password=$_POST['password'];
 
 #echo $firstname." ".$lastname." ".$email." ".$password;
-
+//Connnecting to the Database with name Ecomm
 $link=mysqli_connect("localhost","root","","Ecomm");
 
 if(!$link){
     echo "Not connected to database";
 }
 else{
-    echo "Connected Sucessfully";
-    echo "<br>";
+    
     mysqli_query($link,"INSERT INTO Users (firstname,lastname,email,password) VALUES ('".$firstname."','".$lastname."','".$email."','".$password."')") or die(mysqli_error($link));
        header('location:login.php?signup=sucessful');
 }
