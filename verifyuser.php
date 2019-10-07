@@ -26,7 +26,12 @@ $checkEmail=mysqli_query($link,"SELECT * FROM Users WHERE email='".$email."' ") 
         echo "<br/><br/>";
         $info=mysqli_fetch_array($checkEmail);
         if($password==$info['password']){
-         header('location:home.php?signin=sucessfull');
+            $firstname=$info['firstname'];
+            $uid=$info['uid'];    
+            $_SESSION['username']=$firstname;
+            $_SESSION['userid']=$uid;
+            
+         header('location:home.php?signin=successfull');
         
             
         }

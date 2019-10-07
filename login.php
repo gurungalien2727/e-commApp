@@ -24,7 +24,7 @@ session_start();
 <div class="formdiv" style="font-size:18px">
    
 
-    <h2 style="font-style:italic">e-comm app</h2>
+    <h2 style="font-style:bold">e-comm app</h2>
     <br>
     
     <label for="email">Email</label>

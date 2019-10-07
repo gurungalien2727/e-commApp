@@ -1,0 +1,170 @@
+.header {
+  width: 100%;
+  height: 60;
+  background-color: #dddddd;
+}
+#searchbar {
+  margin-top: -32;
+  margin-left: 720;
+  height: 40;
+  width: 45%;
+  font-size: 18;
+  float: left;
+}
+#list1 li {
+  display: inline;
+  font-size: 22;
+  float: left;
+  margin-top: 18;
+  margin-left: 100;
+}
+#list1 li:first-child {
+  font-size: 30;
+  margin-left: 30;
+  margin-top: 12;
+}
+#list1 li a {
+  text-decoration: none;
+  color: black;
+}
+#list1 li a:hover {
+  text-decoration: underline;
+  color: white;
+}
+
+#list2 li {
+  display: inline;
+  font-size: 22;
+  float: left;
+  margin-left: 78;
+  margin-top: -25;
+}
+#list2 li a {
+  text-decoration: none;
+  color: black;
+}
+#list2 li a:hover {
+  text-decoration: underline;
+  color: white;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+
+  width: 120;
+  height: 130;
+  padding-top: 14;
+}
+
+#list2 li:first-child:hover .dropdown-content {
+  display: block;
+}
+.dropdown-content a {
+  font-size: 16;
+  font-style: normal;
+  text-decoration: underline;
+}
+
+.firstrow {
+  width: 100%;
+  height: 800;
+  background-color: #dddddd;
+  position: relative;
+}
+
+.secondrow {
+  width: 100%;
+  height: 800;
+  background-color: #dddddd;
+}
+
+div a{
+  text-decoration: none;
+  color: black;
+}
+
+.productone {
+  width: 20%;
+  height: 700;
+  background-color:#cccccc;
+  padding: 8px;
+  float: left;
+
+  
+}
+.productone:hover{
+  border:2px solid black;
+}
+
+.producttwo {
+  width: 20%;
+  height: 700;
+  background-color: red;
+  margin-left: 2.5%;
+  float: left;
+}
+
+.productthree {
+  width: 20%;
+  height: 700;
+  background-color: red;
+  margin-left: 2.5%;
+  float: left;
+}
+
+.productfour {
+  width: 20%;
+  height: 700;
+  background-color: red;
+  float: right;
+  margin-right: 12%;
+}
+
+.productfive {
+  width: 20%;
+  height: 700;
+  background-color: red;
+  float: left;
+}
+
+.productsix {
+  width: 20%;
+  height: 700;
+  background-color: red;
+  margin-left: 2.5%;
+  float: left;
+}
+
+.productseven {
+  width: 20%;
+  height: 700;
+  background-color: red;
+  margin-left: 2.5%;
+  float: left;
+}
+
+.producteight {
+  width: 20%;
+  height: 700;
+  background-color: red;
+  float: right;
+  margin-right: 12%;
+}
+
+.pagenumbers {
+  height: 40;
+  width: 240;
+  background-color: #dddddd;
+  margin-left: 50%;
+}
+.pagenumbers ul li {
+  display: inline;
+  margin-right: 15px;
+}
+
+.pagenumbers ul li a {
+  color: black;
+}
+
