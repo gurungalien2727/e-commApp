@@ -11,8 +11,7 @@ if(!isset($_SESSION['username'])){
 $username=$_SESSION['username'];
 $uid=$_SESSION['userid'];
 
- echo '<h1 style="text-align:center">Welcome  ';
- echo $username." userid = ".$uid;
+ echo '<h1 style="text-align:center">Welcome to E-Comm Website';
 
  
 
@@ -26,6 +25,7 @@ $uid=$_SESSION['userid'];
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Home Page</title>
     <link rel="stylesheet" href="homestyle4.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
     <br><br>
@@ -33,13 +33,18 @@ $uid=$_SESSION['userid'];
 <div class="header">
     <ul id="list1">
 <li>Categories</li>
-<li><a href="home.php"> All</a></li>
-<li><a href="#">Clothes</a></li>
-<li><a href="#">Electronics</a></li>
-<li><a href="#">Movies</a></li>
+<li><a href="home.php"> All</a>
+</li>
+<li><a href="clothes.php">Clothes</a></li>
+<li><a href="electronics.php">Electronics</a></li>
+<li><a href="">Shoes</a></li>
 </ul>
-    <input id="searchbar" type="text" name="searchbar" placeholder=" Search items ......" >
+    <input id="searchbar" type="text" onkeyup="getStates(this.value)" name="searchbar" placeholder=" Search items ......" >
+    
+    <button id="click" type="submit"><i class="fa fa-search"></i></button>
 <ul id="list2">
+
+
  <li>Account <div class="dropdown-content">
      
     <a href="#">Your Account</a>
@@ -49,78 +54,110 @@ $uid=$_SESSION['userid'];
     <a href="login.php">Sign out</a>
     <br><br>
   </div><li>
- <li><a href="#">Help</a>
+ 
 </ul>
 </div>
-<br><br><br><br><br>
 
-<div class="firstrow">
+<div class="container" >
 
-<div class="productone" >
-    <a href="productspage.php" class="fill-div">
-   <?php
-$link=mysqli_connect("localhost","root","","Ecomm");
-  if(!$link){
-   
-  }
-  else{
-      $info=mysqli_query($link,"SELECT * FROM Products WHERE pid=1");
-
-     $array=mysqli_fetch_array($info);
-     $productid=$array['pid'];
-     $_SESSION['pid']=$productid;
-
-     echo '<img src="gallery/mac.jpg" height="550"> 
-     <p style="text-align:center">'.$array['brandname'].'</p>
-     <p style="text-align:center">'."$ ".$array['price'].'</p>';
-     
-
-  }
-?>
-</a>
+<div class="item1" id="results" style="width:1400px; margin:auto;margin-left:870px;"></div>
+<div class="banner"></div>
+<div  id="outer" style="height:2000; width:100%px;color:red">
+       <br>
 </div>
-
-
-<div class="producttwo">
-
 </div>
-<div class="productthree">
-
-</div>
-<div class="productfour">
-
-</div>
-
-</div>
-
-<br><br><br><br>
-
-<div class="secondrow">
-    <div class="productfive">
-
-</div>
-<div class="productsix">
-
-</div>
-<div class="productseven">
-
-</div>
-<div class="producteight">
-
-</div>
-
-</div>
-
-<br><br><br>
-<div class="pagenumbers">
-   <ul>
-       <li><a href="home.php">1</a></li>
-       <li><a href="#">2</a</li>
-       <li><a href="#">3</a</li>
-       <li><a href="#">4</a</li>
-   </ul>
-</div>
-
-    
 </body>
 </html>
+
+<script  src="jquery.js"></script>
+
+<script>
+  
+function  getStates(value){
+   $.post("searchbar.php",{partialState:value},function(data){
+         $("#results").html(data);
+    });}
+     
+
+window.onload = function(){
+  
+ 
+<?php
+   $link=mysqli_connect("localhost","root","","Ecomm");
+   $info=mysqli_query($link,"SELECT * FROM Products ");
+   $id=array();
+   $category=array();
+   $brandname=array();
+   $price=array();
+   $index=0;
+   $rowNum=mysqli_num_rows($info);
+   while($row=mysqli_fetch_assoc($info)){
+
+   $id[$index]=$row['pid'];
+   $category[$index]=$row['category'];
+   $brandname[$index]=$row['brandname'];
+   $price[$index]=$row['price'];
+   $imagename[$index]=$row['imagename'];
+
+   $index++;
+
+   }
+?>
+ var numOfRows="<?php echo $rowNum; ?>";
+ var pid=<?php echo json_encode($id); ?>;
+ var category=<?php echo json_encode($category); ?>;
+ var brandname=<?php echo json_encode($brandname); ?>;
+ var price=<?php echo json_encode($price); ?>;
+ var imagename=<?php echo json_encode($imagename); ?>;
+
+
+   for(var i=0;i<numOfRows;i++){
+      var id=pid[i];
+      var cat=category[i];
+      var brand=brandname[i];
+      var p=price[i];
+      var imageName="gallery/"+imagename[i];
+
+var div = document.createElement("div");
+div.setAttribute("id","div1");
+
+div.style.width = "21%";
+div.style.height = "700px";
+div.style.background = "#cccccc";
+div.style.border="5px solid aqua";
+
+div.style.color = "white";
+div.style.margin="50px";
+//div.style.margin-top="10px";
+div.style.display="inline-block";
+
+var elem = document.createElement("img");
+elem.setAttribute("src",imageName );
+elem.setAttribute("height", "500px");
+elem.setAttribute("width", "96%");
+elem.setAttribute("alt", cat);
+div.appendChild(elem);
+var p1=document.createElement("p");
+p1.innerHTML=cat;
+div.append(p1);
+var p2=document.createElement("p");
+p2.innerHTML=brand;
+div.append(p2);
+var p3=document.createElement("p3");
+p3.innerHTML="$ "+p;
+div.append(p3);
+var aTag = document.createElement('a');
+var link="productspage.php?quantity="+id;
+aTag.setAttribute('href',link);
+//aTag.innerText = "link text";
+aTag.appendChild(div);
+
+
+document.getElementById("outer").appendChild(aTag);
+  }};
+
+
+
+  
+</script>
+ 

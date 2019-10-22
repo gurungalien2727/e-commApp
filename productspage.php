@@ -16,12 +16,18 @@ session_start();
 <body>
 
 <?php
- 
- $pid=$_SESSION['pid'];
+
+ $quantity=$_GET['quantity'];
+ //echo $quantity;
+ $_SESSION['pid1']=$quantity;
+ $pid=$quantity;
  $link=mysqli_connect("localhost","root","","Ecomm");
  $info=mysqli_query($link,"SELECT * FROM Products WHERE pid=$pid");
  $datas=mysqli_fetch_array($info);
  //echo $datas['brandname'];
+
+ 
+
 ?>
 <br><br><br><br>
 <h1 style="text-align:center">Products Page<h1>
@@ -30,7 +36,9 @@ session_start();
 
 <div class="imgdiv">
 <?php
-echo '<img src="gallery/mac.jpg" height="550"> '
+$imagename="gallery/".$datas['imagename'];
+
+echo '<img src='.$imagename.' height="550"> '
 ?>
 <div style="height:600px;width:600px;background-color:#;float:right;margin-right:1200px">
 <?php
@@ -43,7 +51,7 @@ echo '<p style="text-align:center; margin-top:120px"> Price : $'.$datas['price']
 <div style="margin-left:200px;height:75px;width:200px;background-color:blue">
 <a href="shippingpage
 .php">
-<p style="text-align:center;padding-top:20px;color:white">Buy</p></div>
+<p style="text-align:center;padding-top:20px;color:white;text-decoration:none">Buy</p></div>
 </a>
 </div>
 
@@ -51,3 +59,8 @@ echo '<p style="text-align:center; margin-top:120px"> Price : $'.$datas['price']
     
 </body>
 </html>
+<?php
+
+
+
+?>

@@ -17,7 +17,8 @@ session_start();
 
 <?php
  
- $pid=$_SESSION['pid'];
+ $pid=$_SESSION['pid1'];
+ echo $pid;
  $link=mysqli_connect("localhost","root","","Ecomm");
  $info=mysqli_query($link,"SELECT * FROM Products WHERE pid=$pid");
  $datas=mysqli_fetch_array($info);
@@ -30,7 +31,8 @@ session_start();
 
 <div class="imgdiv">
 <?php
-echo '<img src="gallery/mac.jpg" height="550"> '
+$imagename=$datas['imagename'];
+echo '<img src="gallery/'.$imagename.'" height="550"> '
 ?>
 <div style="height:600px;width:600px;background-color:#;float:right;margin-right:1200px">
 <?php
@@ -46,7 +48,7 @@ echo '<p style="text-align:center; margin-top:120px;text-decoration:underline"> 
 <br><br>
 <div style="margin-left:200px;height:75px;width:500px;background-color:blue"  >
 
-<a href="home.php">
+<a href="home.php" style="text-decoration:none">
 <p style="text-align:center;padding-top:20px;color:white">Place your order</p></div>
 <a/>
 </div>
