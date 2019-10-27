@@ -22,7 +22,11 @@
     <br><br>
     <label for="Price">Price</label>
     <br>
-    <input type="number" name="price" id="email">
+    <input type="number" name="price" id="price">
+    <br><br>
+    <label for="description">Description</label>
+    <br>
+   <textarea name="description" id="textarea"></textarea>
     <br><br><br>
     <label for="productimage">Product Image</label>
     <br><br>
@@ -30,6 +34,11 @@
     <br><br>
     <input type="submit" value="Upload">
     <form/>
-    
+  <br><br><br><br>
+  
+  <a href="login.php" style="text-decoration:none">
+  <div style="background-color:blue;color:white;height:40px;width:100px;padding:8px;text-align:center;">Sign out</div>
+  </a>
+  
 </body>
 </html>

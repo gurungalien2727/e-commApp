@@ -5,13 +5,14 @@ if(!isset($_SESSION['username'])){
     header('location:login.php?loginfirst');
 }
 
+
 ?>
 <?php
 
 $username=$_SESSION['username'];
 $uid=$_SESSION['userid'];
 
- echo '<h1 style="text-align:center">Welcome to E-Comm Website';
+ echo '<h1 style="text-align:center">Welcome '.$username.'';
 
  
 
@@ -37,31 +38,39 @@ $uid=$_SESSION['userid'];
 </li>
 <li><a href="clothes.php">Clothes</a></li>
 <li><a href="electronics.php">Electronics</a></li>
-<li><a href="">Shoes</a></li>
+<li><a href="shoes.php">Shoes</a></li>
 </ul>
     <input id="searchbar" type="text" onkeyup="getStates(this.value)" name="searchbar" placeholder=" Search items ......" >
     
-    <button id="click" type="submit"><i class="fa fa-search"></i></button>
+    <!--<button id="click" type="submit"><i class="fa fa-search"></i></button>  -->
 <ul id="list2">
 
 
  <li>Account <div class="dropdown-content">
      
     <a href="#">Your Account</a>
-    <br><br>
-    <a href="#">Your Order</a>
-    <br><br>
+    <br>
+    <a href="orders.php">Your Order</a>
+    <br>
     <a href="login.php">Sign out</a>
-    <br><br>
+    <br>
   </div><li>
  
 </ul>
 </div>
 
-<div class="container" >
+<div class="banner" style="height:200px;width:500px;background-color:#; float:left"><?php
 
+if(isset($_SESSION['ordered'])){
+echo "<p style='background-color:#ADFF2F;color:white;
+text-align:left'>Your &nbsp order &nbsp is &nbspsuccessful<p>";
+}
+?>
+</div>
+<div class="container">
 <div class="item1" id="results" style="width:1400px; margin:auto;margin-left:870px;"></div>
 <div class="banner"></div>
+<br><br>
 <div  id="outer" style="height:2000; width:100%px;color:red">
        <br>
 </div>
@@ -83,12 +92,13 @@ window.onload = function(){
   
  
 <?php
-   $link=mysqli_connect("localhost","root","","Ecomm");
-   $info=mysqli_query($link,"SELECT * FROM Products ");
+   $link=mysqli_connect("localhost","root","","Ecomm2");
+   $info=mysqli_query($link,"SELECT * FROM Product ");
    $id=array();
    $category=array();
    $brandname=array();
    $price=array();
+   $seller=array();
    $index=0;
    $rowNum=mysqli_num_rows($info);
    while($row=mysqli_fetch_assoc($info)){
@@ -98,6 +108,8 @@ window.onload = function(){
    $brandname[$index]=$row['brandname'];
    $price[$index]=$row['price'];
    $imagename[$index]=$row['imagename'];
+  
+  
 
    $index++;
 
@@ -124,7 +136,7 @@ div.setAttribute("id","div1");
 div.style.width = "21%";
 div.style.height = "700px";
 div.style.background = "#cccccc";
-div.style.border="5px solid aqua";
+div.style.border="5px solid coral ";
 
 div.style.color = "white";
 div.style.margin="50px";
@@ -161,3 +173,9 @@ document.getElementById("outer").appendChild(aTag);
   
 </script>
  
+
+ <?php
+
+ unset($_SESSION['ordered']);
+
+?>

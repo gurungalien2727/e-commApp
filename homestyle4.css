@@ -1,20 +1,10 @@
 #results {
-  
-  height:10px;
-  position:absolute;
-  z-index:1;
-  
-}
-.banner{
-  width: 100%;
-  height: 0px;
+  height: 10px;
+  position: absolute;
+  z-index: 1;
 }
 #outer {
- /* background-color: orange;*/
-  position:absolute;
-}
-.container {
-  
+  position: absolute;
 }
 
 .header {
@@ -75,15 +65,20 @@
 .dropdown-content {
   display: none;
   position: absolute;
-  background-color: #f1f1f1;
+  background-color:#cccccc;
 
   width: 120;
-  height: 130;
+  height:100;
   padding-top: 14;
 }
 
 #list2 li:first-child:hover .dropdown-content {
   display: block;
+}
+.dropdown-content a {
+  font-size: 12;
+  font-style: normal;
+  text-decoration: underline;
 }
 
 .firstrow {

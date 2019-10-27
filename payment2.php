@@ -62,16 +62,7 @@
 
 
     function proceed(){
-            var cardnumber=document.getElementById('cardnumber').value;
-            var securitycode=document.getElementById('securitycode').value;
-            
-            var selecteditem=document.getElementById('selectbox');
-
-            var val=selecteditem.options[selecteditem.selectedIndex].value;
-
-            var date=document.getElementById('date').value;
-            
-                    
+           
             var notify=document.getElementById("notify");
             
             if(cardnumber==""||securitycode==""){

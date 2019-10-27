@@ -16,9 +16,9 @@ if(!$link){
 }
 
 
-$checkEmail=mysqli_query($link,"SELECT * FROM Customer WHERE email='".$email."' ") ;
+$checkEmail=mysqli_query($link,"SELECT * FROM Seller WHERE email='".$email."' ") ;
     if(mysqli_num_rows($checkEmail)==0){
-       header('location:login.php?signin=failed');
+       header('location:signinseller.php?signin=failed');
        $_SESSION['test']='Incorrect email';
     }
 
@@ -27,17 +27,17 @@ $checkEmail=mysqli_query($link,"SELECT * FROM Customer WHERE email='".$email."' 
         $info=mysqli_fetch_array($checkEmail);
         if($password==$info['password']){
             $firstname=$info['firstname'];
-            $uid=$info['cid'];    
+            $sid=$info['sid'];    
             $_SESSION['username']=$firstname;
-            $_SESSION['userid']=$uid;
+            $_SESSION['sellerid']=$sid;
             
-         header('location:home.php?signin=successfull');
+         header('location:productsimage.php?signin=successfull');
         
             
         }
         else{
         $_SESSION['test2']="Incorrect password";
-        header('location:login.php?signin=fail');
+        header('location:signinseller.php?signin=fail');
         }
     }
 

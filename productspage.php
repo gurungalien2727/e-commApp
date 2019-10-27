@@ -21,8 +21,8 @@ session_start();
  //echo $quantity;
  $_SESSION['pid1']=$quantity;
  $pid=$quantity;
- $link=mysqli_connect("localhost","root","","Ecomm");
- $info=mysqli_query($link,"SELECT * FROM Products WHERE pid=$pid");
+ $link=mysqli_connect("localhost","root","","Ecomm2");
+ $info=mysqli_query($link,"SELECT * FROM Product WHERE pid=$pid");
  $datas=mysqli_fetch_array($info);
  //echo $datas['brandname'];
 
@@ -48,13 +48,11 @@ echo '<p style="text-align:center; margin-top:120px"> Price : $'.$datas['price']
  ';
 ?>
 <br><br>
+<a href="shippingandpayment.php" style="text-decoration:none">
 <div style="margin-left:200px;height:75px;width:200px;background-color:blue">
-<a href="shippingpage
-.php">
 <p style="text-align:center;padding-top:20px;color:white;text-decoration:none">Buy</p></div>
-</a>
 </div>
-
+</a>
 </div>
     
 </body>

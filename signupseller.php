@@ -12,12 +12,12 @@
 <body>
 
 <div class="form">
-<form onsubmit="return validate()" method="POST" action="register.php"  >
+<form onsubmit="return validate()" method="POST" action="registerseller.php"  >
 
 <div class="formdiv">
-    Already a Customer?
+    Already a Seller?
     <br/>
-    <a href="login.php" style="margin-left:60px;" >Sign in </a>
+    <a href="signinseller.php" style="margin-left:60px;" >Sign in </a>
     <br><br><br>
 
     <label for="firstname">FirstName</label>

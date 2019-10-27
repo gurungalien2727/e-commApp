@@ -18,9 +18,9 @@ session_start();
 <?php
  
  $pid=$_SESSION['pid1'];
- echo $pid;
- $link=mysqli_connect("localhost","root","","Ecomm");
- $info=mysqli_query($link,"SELECT * FROM Products WHERE pid=$pid");
+ //echo $pid;
+ $link=mysqli_connect("localhost","root","","Ecomm2");
+ $info=mysqli_query($link,"SELECT * FROM Product WHERE pid=$pid");
  $datas=mysqli_fetch_array($info);
  //echo $datas['brandname'];
 ?>
@@ -48,7 +48,7 @@ echo '<p style="text-align:center; margin-top:120px;text-decoration:underline"> 
 <br><br>
 <div style="margin-left:200px;height:75px;width:500px;background-color:blue"  >
 
-<a href="home.php" style="text-decoration:none">
+<a href="buy.php" style="text-decoration:none">
 <p style="text-align:center;padding-top:20px;color:white">Place your order</p></div>
 <a/>
 </div>

@@ -19,12 +19,12 @@ session_start();
 <body>
 
 <div class="form">
-<form onsubmit="return validate()" method="POST" action="verifyuser.php"  >
+<form onsubmit="return validate()" method="POST" action="verifyseller.php"  >
 
 <div class="formdiv" style="font-size:18px">
    
 
-    <h2 style="font-style:bold">e-comm app</h2>
+    <h2 style="font-style:bold">Seller Account</h2>
     <br>
     
     <label for="email">Email</label>
@@ -42,19 +42,7 @@ session_start();
 
     <br><br>
   
-    <span style="font-size:13px">New User</span>
     
-    <a href="signup.php" style="margin-left:5px;">Sign up </a>
-    <br>
-    <span style="font-size:13px">New Seller</span>
-    
-    <a href="signupseller.php" style="margin-left:5px;">Sign up </a>
-    <br><br>
-
-    <span style="font-size:13px">As Seller</span>
-    
-    <a href="signinseller.php" style="margin-left:5px;">Sign in </a>
-    <br><br>
     <?php
     
 if(isset($_SESSION['test'])){

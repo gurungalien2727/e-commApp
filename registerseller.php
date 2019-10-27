@@ -1,7 +1,7 @@
 <?php
 
 if(!isset($_POST['submit'])){
-header('location:signup.php?error');
+header('location:signupseller.php?error');
 }
 
 $firstname=$_POST['firstname'];
@@ -18,7 +18,7 @@ if(!$link){
 }
 else{
     
-    mysqli_query($link,"INSERT INTO Customer (firstname,lastname,email,password) VALUES ('".$firstname."','".$lastname."','".$email."','".$password."')") or die(mysqli_error($link));
+    mysqli_query($link,"INSERT INTO Seller (firstname,lastname,email,password) VALUES ('".$firstname."','".$lastname."','".$email."','".$password."')") or die(mysqli_error($link));
        header('location:login.php?signup=successful');
 }
 
