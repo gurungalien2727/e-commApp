@@ -48,7 +48,7 @@ $uid=$_SESSION['userid'];
 
  <li>Account <div class="dropdown-content">
      
-    <a href="#">Your Account</a>
+    <a href="bot2.php">Chat with bot</a>
     <br>
     <a href="orders.php">Your Order</a>
     <br>
